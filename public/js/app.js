@@ -43170,8 +43170,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this3.errors.push(error.response.data.errors.deadline[0]);
                 }
             });
+        },
+        deleteTask: function deleteTask(index) {
+            var _this4 = this;
+
+            var conf = confirm("Do you ready want to delete this task?");
+            if (conf === true) {
+
+                axios.delete('/task/' + this.tasks[index].id).then(function (response) {
+
+                    _this4.tasks.splice(index, 1);
+                }).catch(function (error) {});
+            }
         }
     }
+
 });
 
 /***/ }),

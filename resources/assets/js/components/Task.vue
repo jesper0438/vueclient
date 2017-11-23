@@ -238,8 +238,24 @@
                             this.errors.push(error.response.data.errors.deadline[0]);
                         }
                     });
-            }
+            },
+            deleteTask(index)
+            {
+                let conf = confirm("Do you ready want to delete this task?");
+                if (conf === true) {
 
-        }
+                    axios.delete('/task/' + this.tasks[index].id)
+                        .then(response => {
+
+                            this.tasks.splice(index, 1);
+
+                        })
+                        .catch(error => {
+
+                        });
+                }
+            },
+        },
+                
     }
 </script>
